@@ -5,7 +5,9 @@
 <p align="center">
   <img src="https://img.shields.io/badge/AWS-Cloud%20Essentials-orange?logo=amazon-aws&logoColor=white" />
   <img src="https://img.shields.io/badge/Docs-5%20Services-blue" />
-  <img src="https://img.shields.io/badge/Author-Thiyagu%20S-green" />
+  <a href="https://github.com/Thiyagu-2003">
+    <img src="https://img.shields.io/badge/GitHub-Thiyagu--2003-black?logo=github" />
+  </a>
 </p>
 
 ---
@@ -149,7 +151,7 @@ AWS-Tutorials/
 ✔ Study **S3** → storage layer
 ✔ Finish with **Route 53** → global routing & DNS
 
-This mirrors real-world AWS architecture flow.
+This ordering reflects real-world AWS architecture.
 
 ---
 
@@ -163,3 +165,9 @@ Location: India 🇮🇳
 
 ---
 
+<p align="center">
+  <strong>Made with ❤️ by <a href="https://github.com/Thiyagu-2003">Thiyagu S</a></strong><br>
+  Learning • Building • Improving
+</p>
+
+---
