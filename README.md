@@ -179,5 +179,3 @@ GitHub: Thiyagu-2003
 </p>
 
 ---
-
-Just say **"upgrade the README UI"** and I’ll rebuild it properly.

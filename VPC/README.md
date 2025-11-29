@@ -331,13 +331,16 @@ ssh -i <your-key.pem> ec2-user@<public-ip>
 ```
 Name: Thiyagu S
 Role: Cloud & DevOps Learner
-Focus: AWS, VPC, EC2, DevOps
 Country: India 🇮🇳
 ```
 
+---
+
+# ❤️ **Footer**
+
 <p align="center">
-  <strong>Made with ❤️ by Thiyagu S</strong><br>
-  <sub>Learning. Building. Improving.</sub>
+  <strong>Made with ❤️ by <a href="https://github.com/Thiyagu-2003">Thiyagu S</a></strong><br>
+  Learning • Building • Improving
 </p>
 
 ---
