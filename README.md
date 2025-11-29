@@ -1,11 +1,12 @@
 ---
+
 # 📘 **AWS Cloud Essentials – Complete Documentation Index**
 
 <p align="center">
   <img src="https://img.shields.io/badge/AWS-Cloud%20Essentials-orange?logo=amazon-aws&logoColor=white" />
   <img src="https://img.shields.io/badge/Docs-5%20Services-blue" />
   <a href="https://github.com/Thiyagu-2003">
-    <img src="https://img.shields.io/badge/Made%20By-Thiyagu%20S-green?logo=github" />
+    <img src="https://img.shields.io/badge/Made%20By-Thiyagu%20S-brightgreen?logo=github" />
   </a>
 </p>
 
@@ -13,121 +14,108 @@
 
 # 📑 **Table of Contents (Open Any Service)**
 
-All five AWS service tutorials follow a **unified design**, **consistent structure**, and **clean visual formatting**.
-
-Below are premium-style *center-aligned links* (GitHub does not allow styled buttons).
+Each AWS service has a **premium-style tutorial**, clean diagrams, and interview questions.
 
 ---
 
-## 🖥️ **EC2 – Compute (Virtual Machines)**
+# **🖥️ EC2 – Compute (Virtual Machines)**
 
 <p align="center">
   <a href="EC2/README.md">
-    🚀 <strong>Open EC2 Documentation</strong>
+    <img src="https://img.shields.io/badge/🚀 Open%20EC2%20Documentation-1f6feb?style=for-the-badge" />
   </a>
 </p>
 
-**Covers:**
+**Includes:**
 
-- EC2 basics & components
-- Instance types
-- EBS storage
-- Security groups
-- Key pairs
-- AMIs
-- Hands-on tutorial
-- Diagrams
-- Interview questions
+* EC2 basics
+* Instance families
+* AMIs, EBS
+* Security groups
+* Web server demo
+* Diagrams + interview Qs
 
 ---
 
-## 🪣 **S3 – Object Storage**
+# **🪣 S3 – Object Storage**
 
 <p align="center">
   <a href="S3/README.md">
-    📂 <strong>Open S3 Documentation</strong>
+    <img src="https://img.shields.io/badge/📂 Open%20S3%20Documentation-8a2be2?style=for-the-badge" />
   </a>
 </p>
 
-**Covers:**
+**Includes:**
 
-- Buckets, objects, regions
-- Storage classes
-- Versioning & lifecycle
-- Encryption (SSE-S3, SSE-KMS)
-- Block public access
-- Static website hosting
-- Policies & access control
-- Interview questions
+* Buckets & objects
+* Storage classes
+* Versioning, lifecycle
+* SSE encryption
+* Static hosting
+* Interview Qs
 
 ---
 
-## 🔐 **IAM – Identity & Access Management**
+# 🔐 **IAM – Identity & Access Management**
 
 <p align="center">
   <a href="IAM/README.md">
-    🔑 <strong>Open IAM Documentation</strong>
+    <img src="https://img.shields.io/badge/🔑 Open%20IAM%20Documentation-d97706?style=for-the-badge" />
   </a>
 </p>
 
-**Covers:**
+**Includes:**
 
-- IAM Users, Groups, Roles
-- Inline vs managed policies
-- Access keys, MFA, STS
-- Least privilege
-- Cross-account access
-- IAM best practices
-- Interview questions
+* Users, Groups, Roles
+* Policies (inline/managed)
+* MFA, STS
+* Best practices
+* Interview Qs
 
 ---
 
-## 🌐 **VPC – Virtual Private Cloud**
+# 🌐 **VPC – Virtual Private Cloud**
 
 <p align="center">
   <a href="VPC/README.md">
-    🌐 <strong>Open VPC Documentation</strong>
+    <img src="https://img.shields.io/badge/🌐 Open%20VPC%20Documentation-0d9488?style=for-the-badge" />
   </a>
 </p>
 
-**Covers:**
+**Includes:**
 
-- VPCs, subnets, CIDR
-- Route tables
-- IGW, NAT Gateway
-- NACL vs Security Groups
-- Private/public subnet patterns
-- VPC Peering
-- Transit Gateway
-- Flow logs
-- Interview questions
+* VPC, Subnets, CIDR
+* NAT, IGW
+* Route tables
+* NACLs vs SGs
+* VPC Peering
+* TGW
+* Interview Qs
 
 ---
 
-## 🌍 **Route 53 – DNS & Global Routing**
+# 🌍 **Route 53 – DNS & Global Routing**
 
 <p align="center">
   <a href="Route53/README.md">
-    🌍 <strong>Open Route 53 Documentation</strong>
+    <img src="https://img.shields.io/badge/🌍 Open%20Route%2053%20Documentation-9333ea?style=for-the-badge" />
   </a>
 </p>
 
-**Covers:**
+**Includes:**
 
-- DNS fundamentals
-- Hosted zones
-- Routing policies
-- Record types (A, CNAME, Alias…)
-- Domain registration
-- Health checks
-- Interview questions
+* DNS basics
+* Hosted zones
+* Record types
+* Routing policies
+* Health checks
+* Interview Qs
 
 ---
 
-# 📦 **Repository Structure**
+# 🗂️ **Repository Structure**
 
 ```
-
 AWS-Tutorials/
 │
 ├── README.md                 <-- Main Index
@@ -141,34 +129,32 @@ AWS-Tutorials/
 ├── VPC/
 │   └── README.md
 └── Route53/
-└── README.md
-
+    └── README.md
 ```
 
 ---
 
-# 🧭 **Recommended Learning Order**
+# 🧭 **Recommended AWS Learning Path**
 
-✔ **IAM** → Identity, security, permissions  
-✔ **VPC** → Networking & architecture  
-✔ **EC2** → Compute layer  
-✔ **S3** → Storage layer  
-✔ **Route 53** → DNS & routing  
+1️⃣ **IAM** → Identity + Security
+2️⃣ **VPC** → Networking foundation
+3️⃣ **EC2** → Compute layer
+4️⃣ **S3** → Storage layer
+5️⃣ **Route 53** → DNS + global routing
 
-This order mirrors real-world AWS project workflows.
+This is the same order used by real DevOps teams.
 
 ---
 
 # 👤 **Author**
 
 ```
-
 Name: Thiyagu S
 Role: Cloud & DevOps Learner
 Location: India 🇮🇳
 GitHub: Thiyagu-2003
-
 ```
+
 ---
 
 # ❤️ **Footer**
