@@ -7,6 +7,9 @@
   <img src="https://img.shields.io/badge/Security-Identity%20%26%20Access-blue" />
   <img src="https://img.shields.io/badge/Best%20Practices-Must%20Know-success" />
   <img src="https://img.shields.io/badge/Least%20Privilege-Yes-green" />
+  <a href="https://github.com/Thiyagu-2003">
+    <img src="https://img.shields.io/badge/Made%20By-Thiyagu%20S-green?logo=github" />
+  </a>
 </p>
 
 ---
@@ -286,13 +289,16 @@ Each team gets only what their tasks require.
 ```
 Name: Thiyagu S
 Role: Cloud & DevOps Learner
-Focus: AWS, IAM, EC2, S3, VPC, DevOps Tools
 Country: India 🇮🇳
 ```
 
+---
+
+# ❤️ **Footer**
+
 <p align="center">
-  <strong>Made with ❤️ by Thiyagu S</strong><br>
-  <sub>Learning. Building. Sharpening Skills.</sub>
+  <strong>Made with ❤️ by <a href="https://github.com/Thiyagu-2003">Thiyagu S</a></strong><br>
+  Learning • Building • Improving
 </p>
 
 ---

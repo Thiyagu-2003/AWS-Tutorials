@@ -11,6 +11,9 @@
 &nbsp; <img src="https://img.shields.io/badge/DNS-Management-green" />
 
 &nbsp; <img src="https://img.shields.io/badge/Status-Production%20Ready-success" />
+  <a href="https://github.com/Thiyagu-2003">
+    <img src="https://img.shields.io/badge/Made%20By-Thiyagu%20S-green?logo=github" />
+  </a>
 
 </p>
 
@@ -430,23 +433,18 @@ Name: Thiyagu S
 
 Role: Cloud \& DevOps Learner  
 
-Focus: AWS, EC2, VPC, Route 53, Terraform, DevOps Tools  
-
 Country: India 🇮🇳  
 
 ```
 
+---
 
+# ❤️ **Footer**
 
 <p align="center">
-
-&nbsp; <strong>Made with ❤️ by Thiyagu S</strong><br>
-
-&nbsp; <sub>Learning. Building. Improving.</sub>
-
+  <strong>Made with ❤️ by <a href="https://github.com/Thiyagu-2003">Thiyagu S</a></strong><br>
+  Learning • Building • Improving
 </p>
-
-
 
 ---
 

@@ -7,6 +7,9 @@
   <img src="https://img.shields.io/badge/Storage-Object%20Storage-blue" />
   <img src="https://img.shields.io/badge/Beginner--Friendly-Yes-green" />
   <img src="https://img.shields.io/badge/Static%20Website%20Hosting-Supported-success" />
+  <a href="https://github.com/Thiyagu-2003">
+    <img src="https://img.shields.io/badge/Made%20By-Thiyagu%20S-green?logo=github" />
+  </a>
 </p>
 
 ---
@@ -260,13 +263,16 @@ CloudTrail / VPC Flow Logs → S3 → Athena for querying.
 ```
 Name: Thiyagu S
 Role: Cloud & DevOps Learner
-Focus: AWS, S3, EC2, VPC, DevOps Tools
 Country: India 🇮🇳
 ```
 
+---
+
+# ❤️ **Footer**
+
 <p align="center">
-  <strong>Made with ❤️ by Thiyagu S</strong><br>
-  <sub>Learning. Building. Sharpening Skills.</sub>
+  <strong>Made with ❤️ by <a href="https://github.com/Thiyagu-2003">Thiyagu S</a></strong><br>
+  Learning • Building • Improving
 </p>
 
 ---

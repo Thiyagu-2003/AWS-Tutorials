@@ -7,6 +7,9 @@
   <img src="https://img.shields.io/badge/Compute-Virtual%20Server-blue" />
   <img src="https://img.shields.io/badge/Beginner%20to%20Pro-success" />
   <img src="https://img.shields.io/badge/Hands--On%20Guide-Yes-green" />
+  <a href="https://github.com/Thiyagu-2003">
+    <img src="https://img.shields.io/badge/Made%20By-Thiyagu%20S-green?logo=github" />
+  </a>
 </p>
 
 ---
@@ -340,13 +343,16 @@ Jenkins, GitLab, or custom automation nodes.
 ```
 Name: Thiyagu S
 Role: Cloud & DevOps Learner
-Focus Areas: AWS, VPC, EC2, Route 53, DevOps Tools
 Country: India 🇮🇳
 ```
 
+---
+
+# ❤️ **Footer**
+
 <p align="center">
-  <strong>Made with ❤️ by Thiyagu S</strong><br>
-  <sub>Learning • Building • Improving</sub>
+  <strong>Made with ❤️ by <a href="https://github.com/Thiyagu-2003">Thiyagu S</a></strong><br>
+  Learning • Building • Improving
 </p>
 
 ---
