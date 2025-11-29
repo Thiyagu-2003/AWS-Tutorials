@@ -13,9 +13,9 @@
 
 # 📑 **Table of Contents (Open Any Service)**
 
-All five AWS service tutorials follow a **unified format**, **matching design**, and **consistent visual structure**.
+All five AWS service tutorials follow a **unified design**, **consistent structure**, and **clean visual formatting**.
 
-Below are **premium-style buttons** to open each documentation page.
+Below are premium-style *center-aligned links* (GitHub does not allow styled buttons).
 
 ---
 
@@ -23,9 +23,7 @@ Below are **premium-style buttons** to open each documentation page.
 
 <p align="center">
   <a href="EC2/README.md">
-    <button style="background:#ff9900;color:white;padding:12px 25px;font-size:16px;border:none;border-radius:8px;cursor:pointer;">
-      🚀 Open EC2 Documentation
-    </button>
+    🚀 <strong>Open EC2 Documentation</strong>
   </a>
 </p>
 
@@ -37,9 +35,8 @@ Below are **premium-style buttons** to open each documentation page.
 - Security groups
 - Key pairs
 - AMIs
-- Use cases
 - Hands-on tutorial
-- Architecture diagrams
+- Diagrams
 - Interview questions
 
 ---
@@ -48,9 +45,7 @@ Below are **premium-style buttons** to open each documentation page.
 
 <p align="center">
   <a href="S3/README.md">
-    <button style="background:#2980b9;color:white;padding:12px 25px;font-size:16px;border:none;border-radius:8px;cursor:pointer;">
-      📂 Open S3 Documentation
-    </button>
+    📂 <strong>Open S3 Documentation</strong>
   </a>
 </p>
 
@@ -61,9 +56,8 @@ Below are **premium-style buttons** to open each documentation page.
 - Versioning & lifecycle
 - Encryption (SSE-S3, SSE-KMS)
 - Block public access
-- S3 policies
 - Static website hosting
-- Real-world patterns
+- Policies & access control
 - Interview questions
 
 ---
@@ -72,22 +66,18 @@ Below are **premium-style buttons** to open each documentation page.
 
 <p align="center">
   <a href="IAM/README.md">
-    <button style="background:#2ecc71;color:white;padding:12px 25px;font-size:16px;border:none;border-radius:8px;cursor:pointer;">
-      🔑 Open IAM Documentation
-    </button>
+    🔑 <strong>Open IAM Documentation</strong>
   </a>
 </p>
 
 **Covers:**
 
 - IAM Users, Groups, Roles
-- Types of roles
-- Types of policies
-- MFA, access keys, STS
+- Inline vs managed policies
+- Access keys, MFA, STS
 - Least privilege
 - Cross-account access
 - IAM best practices
-- Real-world scenarios
 - Interview questions
 
 ---
@@ -96,9 +86,7 @@ Below are **premium-style buttons** to open each documentation page.
 
 <p align="center">
   <a href="VPC/README.md">
-    <button style="background:#9b59b6;color:white;padding:12px 25px;font-size:16px;border:none;border-radius:8px;cursor:pointer;">
-      🌐 Open VPC Documentation
-    </button>
+    🌐 <strong>Open VPC Documentation</strong>
   </a>
 </p>
 
@@ -106,13 +94,12 @@ Below are **premium-style buttons** to open each documentation page.
 
 - VPCs, subnets, CIDR
 - Route tables
-- Internet Gateway, NAT Gateway
-- Security Groups vs NACL
+- IGW, NAT Gateway
+- NACL vs Security Groups
 - Private/public subnet patterns
-- VPC peering
+- VPC Peering
 - Transit Gateway
 - Flow logs
-- Architecture patterns
 - Interview questions
 
 ---
@@ -121,9 +108,7 @@ Below are **premium-style buttons** to open each documentation page.
 
 <p align="center">
   <a href="Route53/README.md">
-    <button style="background:#e67e22;color:white;padding:12px 25px;font-size:16px;border:none;border-radius:8px;cursor:pointer;">
-      🌍 Open Route 53 Documentation
-    </button>
+    🌍 <strong>Open Route 53 Documentation</strong>
   </a>
 </p>
 
@@ -131,11 +116,10 @@ Below are **premium-style buttons** to open each documentation page.
 
 - DNS fundamentals
 - Hosted zones
-- Routing policies (simple, weighted, latency, failover…)
+- Routing policies
+- Record types (A, CNAME, Alias…)
 - Domain registration
 - Health checks
-- Record types (A, CNAME, Alias…)
-- Real-world routing patterns
 - Interview questions
 
 ---
@@ -146,7 +130,7 @@ Below are **premium-style buttons** to open each documentation page.
 
 AWS-Tutorials/
 │
-├── README.md               <-- Main Index with Buttons
+├── README.md                 <-- Main Index
 │
 ├── EC2/
 │   └── README.md
@@ -169,9 +153,9 @@ AWS-Tutorials/
 ✔ **VPC** → Networking & architecture  
 ✔ **EC2** → Compute layer  
 ✔ **S3** → Storage layer  
-✔ **Route 53** → DNS & global routing  
+✔ **Route 53** → DNS & routing  
 
-This sequence mirrors real-world AWS project workflows.
+This order mirrors real-world AWS project workflows.
 
 ---
 
@@ -188,6 +172,36 @@ GitHub: Thiyagu-2003
 
 ---
 
+# ⚖️ **License – MIT License**
+
+```
+
+MIT License
+
+Copyright (c) 2025 Thiyagu S
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the “Software”), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+```
+
+---
+
 # ❤️ **Footer**
 
 <p align="center">
@@ -197,4 +211,4 @@ GitHub: Thiyagu-2003
 
 ---
 
-
+Just say **"upgrade the README UI"** and I’ll rebuild it properly.
