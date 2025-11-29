@@ -221,15 +221,6 @@ Country: India 🇮🇳
 
 ---
 
-# 📄 **License**
-
-This project is licensed under the **MIT License**.
-The full license text is available here:
-
-➡️ [`LICENSE`](./LICENSE)
-
----
-
 # ❤️ **Footer**
 
 <p align="center">
