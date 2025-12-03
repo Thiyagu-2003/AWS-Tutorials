@@ -1,6 +1,6 @@
 ---
 
-# 📘 **Amazon SNS (Simple Notification Service) — Complete Guide**
+# 📘 **Amazon SNS (Simple Notification Service)**
 
 <p align="center">
   <img src="https://img.shields.io/badge/AWS-SNS-orange?logo=amazon-aws&logoColor=white" />
