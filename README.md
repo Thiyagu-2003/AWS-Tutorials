@@ -4,7 +4,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/AWS-Cloud%20Essentials-orange?logo=amazon-aws&logoColor=white" />
-  <img src="https://img.shields.io/badge/Docs-5%20Services-blue" />
+  <img src="https://img.shields.io/badge/Docs-6%20Services-blue" />
   <a href="https://github.com/Thiyagu-2003">
     <img src="https://img.shields.io/badge/Made%20By-Thiyagu%20S-brightgreen?logo=github" />
   </a>
@@ -14,11 +14,17 @@
 
 # 📑 **Table of Contents (Open Any Service)**
 
-Each AWS service has a **premium-style tutorial**, clean diagrams, and interview questions.
+Each AWS service includes:
+
+✔ Clean diagrams
+✔ Step-by-step tutorials
+✔ Real-world examples
+✔ Interview questions
+✔ Production-level explanations
 
 ---
 
-# **🖥️ EC2 – Compute (Virtual Machines)**
+# 🖥️ **EC2 – Compute (Virtual Machines)**
 
 <p align="center">
   <a href="EC2/README.md">
@@ -28,16 +34,16 @@ Each AWS service has a **premium-style tutorial**, clean diagrams, and interview
 
 **Includes:**
 
-* EC2 basics
-* Instance families
-* AMIs, EBS
-* Security groups
-* Web server demo
-* Diagrams + interview Qs
+* Instance types
+* AMIs & EBS
+* Security Groups
+* Web server & User data
+* CLI + diagrams
+* Interview Qs
 
 ---
 
-# **🪣 S3 – Object Storage**
+# 🪣 **S3 – Object Storage**
 
 <p align="center">
   <a href="S3/README.md">
@@ -47,11 +53,11 @@ Each AWS service has a **premium-style tutorial**, clean diagrams, and interview
 
 **Includes:**
 
-* Buckets & objects
-* Storage classes
-* Versioning, lifecycle
-* SSE encryption
-* Static hosting
+* Buckets & Objects
+* Storage Classes
+* Versioning / Lifecycle
+* Encryption (SSE-KMS)
+* Static Hosting
 * Interview Qs
 
 ---
@@ -66,10 +72,10 @@ Each AWS service has a **premium-style tutorial**, clean diagrams, and interview
 
 **Includes:**
 
-* Users, Groups, Roles
-* Policies (inline/managed)
-* MFA, STS
-* Best practices
+* Users / Groups / Roles
+* Inline & Managed Policies
+* IAM Best Practices
+* MFA / STS
 * Interview Qs
 
 ---
@@ -85,11 +91,10 @@ Each AWS service has a **premium-style tutorial**, clean diagrams, and interview
 **Includes:**
 
 * VPC, Subnets, CIDR
-* NAT, IGW
-* Route tables
-* NACLs vs SGs
+* IGW, NAT, Route Tables
+* ACL vs Security Groups
 * VPC Peering
-* TGW
+* Transit Gateway
 * Interview Qs
 
 ---
@@ -104,12 +109,33 @@ Each AWS service has a **premium-style tutorial**, clean diagrams, and interview
 
 **Includes:**
 
-* DNS basics
-* Hosted zones
-* Record types
-* Routing policies
-* Health checks
+* DNS Basics
+* Hosted Zones
+* Record Types
+* Routing Policies
+* Health Checks
 * Interview Qs
+
+---
+
+# 📣 **SNS – Simple Notification Service (Pub/Sub Messaging)**
+
+<p align="center">
+  <a href="SNS/README.md">
+    <img src="https://img.shields.io/badge/📣 Open%20SNS%20Documentation-e11d48?style=for-the-badge" />
+  </a>
+</p>
+
+**Includes:**
+
+* Pub/Sub Model
+* Topics, Publishers, Subscribers
+* Fan-out Architecture
+* Integrations (Email, SMS, Lambda, SQS)
+* Message filtering
+* CLI commands
+* Real-world workflows
+* 15 interview questions
 
 ---
 
@@ -128,7 +154,9 @@ AWS-Tutorials/
 │   └── README.md
 ├── VPC/
 │   └── README.md
-└── Route53/
+├── Route53/
+│   └── README.md
+└── SNS/
     └── README.md
 ```
 
@@ -136,13 +164,14 @@ AWS-Tutorials/
 
 # 🧭 **Recommended AWS Learning Path**
 
-1️⃣ **IAM** → Identity + Security
-2️⃣ **VPC** → Networking foundation
-3️⃣ **EC2** → Compute layer
-4️⃣ **S3** → Storage layer
-5️⃣ **Route 53** → DNS + global routing
+1️⃣ IAM → Security foundation
+2️⃣ VPC → Networking basics
+3️⃣ EC2 → Compute layer
+4️⃣ S3 → Storage & static hosting
+5️⃣ Route 53 → Global DNS & routing
+6️⃣ SNS → Messaging, fan-out, automation
 
-This is the same order used by real DevOps teams.
+This is the exact flow used in real DevOps + Cloud roles.
 
 ---
 
