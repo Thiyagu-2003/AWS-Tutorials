@@ -1,15 +1,10 @@
----
 
-# 📘 **Amazon RDS + EC2 Connectivity – Best Practice Guide**
+# 📘 Amazon RDS + EC2 Connectivity – Best Practice Guide
 
-<p align="center">
-  <img src="https://img.shields.io/badge/AWS-RDS-blue?logo=amazon-aws&logoColor=white" />
-  <img src="https://img.shields.io/badge/Database-MySQL%2FPostgreSQL-lightblue" />
-  <img src="https://img.shields.io/badge/Security-Best%20Practice-brightblue" />
-  <a href="https://github.com/Thiyagu-2003">
-    <img src="https://img.shields.io/badge/Made%20By-Thiyagu%20S-brightgreen?logo=github" />
-  </a>
-</p>
+![AWS-RDS](https://img.shields.io/badge/AWS-RDS-blue?logo=amazon-aws&logoColor=white)
+![Database](https://img.shields.io/badge/Database-MySQL%2FPostgreSQL-lightblue)
+![Security](https://img.shields.io/badge/Security-Best%20Practice-brightblue)
+[Made by Thiyagu S](https://github.com/Thiyagu-2003)
 
 ---
 
@@ -28,9 +23,9 @@
 
 ---
 
-# 🔎 **1. Overview**
+## 🔎 1. Overview  
 
-Amazon RDS allows you to run **fully managed relational databases** in AWS without handling OS or DB maintenance.  
+Amazon RDS allows **fully managed relational databases** in AWS.  
 
 This guide covers **secure EC2 → RDS connectivity** using **EC2 SG references**, which is AWS best practice.
 
@@ -43,51 +38,51 @@ This guide covers **secure EC2 → RDS connectivity** using **EC2 SG references*
 
 ---
 
-# 🚀 **2. Create RDS Instance (MySQL/PostgreSQL)**
+## 🚀 2. Create RDS Instance (MySQL/PostgreSQL)  
 
-### **Step 1: AWS RDS Console → Create Database**
+### Step 1: AWS RDS Console → Create Database
 
-* **Creation Method:** Standard Create  
-* **Engine:** MySQL or PostgreSQL  
-* **Template:** Free Tier (optional)
+- **Creation Method:** Standard Create  
+- **Engine:** MySQL / PostgreSQL  
+- **Template:** Free Tier (optional)
 
-### **Step 2: Configure DB Settings**
+### Step 2: Configure DB Settings
 
-* **DB Identifier:** `mydb`  
-* **Master Username:** `admin`  
-* **Password:** Strong custom password  
+- **DB Identifier:** `mydb`  
+- **Master Username:** `admin`  
+- **Password:** Strong custom password  
 
-### **Step 3: Instance Size**
+### Step 3: Instance Size
 
-* **Free Tier:** `db.t3.micro`  
-* **Storage:** GP3 (20GB)
+- **Free Tier:** `db.t3.micro`  
+- **Storage:** GP3 (20GB)
 
-### **Step 4: Connectivity Settings**
+### Step 4: Connectivity Settings
 
-* **VPC:** Same as EC2  
-* **Subnet Group:** Default or custom  
-* **Public Access:** ❌ **NO**  
-* **VPC Security Group:** Create new → `rds-sg`  
+- **VPC:** Same as EC2  
+- **Subnet Group:** Default or custom  
+- **Public Access:** ❌ NO  
+- **VPC Security Group:** Create new → `rds-sg`  
 
-### **Step 5: Additional Configurations**
+### Step 5: Additional Configurations
 
-* Backup retention: Optional  
-* Monitoring: Optional  
-* Click **Create Database**  
+- Backup retention: Optional  
+- Monitoring: Optional  
+- Click **Create Database**  
 
 ---
 
-# 🔥 **3. Configure RDS Security Group (Best Practice)**
+## 🔥 3. Configure RDS Security Group (Best Practice)  
 
-### ⚠ Why?
+### Why?
 
 Never open RDS to the public (`0.0.0.0/0`). Allow **only EC2 SG → RDS SG**.
 
-### **Step 1: Identify EC2 Security Group**
+### Step 1: Identify EC2 Security Group
 
 - Example: `ec2-sg`  
 
-### **Step 2: Edit RDS SG (`rds-sg`)**
+### Step 2: Edit RDS SG (`rds-sg`)
 
 | Type         | Port | Source                          |
 | ------------ | ---- | ------------------------------- |
@@ -98,14 +93,14 @@ Never open RDS to the public (`0.0.0.0/0`). Allow **only EC2 SG → RDS SG**.
 
 ---
 
-# 🖥️ **4. Configure EC2 Instance**
+## 🖥️ 4. Configure EC2 Instance  
 
-### **Step 1: Launch EC2**
+### Step 1: Launch EC2
 
 - OS: Amazon Linux 2 / Ubuntu  
 - Assign `ec2-sg` security group  
 
-### **Step 2: Install DB Client**
+### Step 2: Install DB Client
 
 **MySQL:**
 
@@ -123,11 +118,13 @@ sudo yum install postgresql -y
 
 ## 🔗 5. Connect EC2 to RDS
 
-### **Get RDS Endpoint**
+### Step 1: Get RDS Endpoint
 
 `RDS → Databases → mydb → Connectivity → Endpoint`
 
-### **MySQL Example**
+### Step 2: Connect
+
+**MySQL:**
 
 ```bash
 mysql -h your-rds-endpoint.amazonaws.com -u admin -p
@@ -145,13 +142,13 @@ psql -h your-rds-endpoint.amazonaws.com -U admin -d postgres
 
 ## 🛡️ 6. Best Practices (No Bullshit Version)
 
-* ❌ Never expose RDS publicly
-* ✅ Use **EC2 SG → RDS SG** only
-* Enable automated backups
-* Enable storage encryption
-* Rotate passwords regularly
-* Use IAM roles, not hardcoded credentials
-* Store credentials in AWS Secrets Manager, not `.env` files
+* ❌ Never expose RDS publicly  
+* ✅ Use **EC2 SG → RDS SG** only  
+* Enable automated backups  
+* Enable storage encryption  
+* Rotate passwords regularly  
+* Use IAM roles, not hardcoded credentials  
+* Store credentials in **AWS Secrets Manager**, not `.env` files  
 
 ---
 
@@ -200,22 +197,17 @@ psql -h your-rds-endpoint.amazonaws.com -U admin -d postgres
 
 ---
 
-# 👤 **Author**
+## 👤 Author
 
-```
-Name: Thiyagu S
-Role: Cloud & DevOps Learner
-Country: India 🇮🇳
-GitHub: Thiyagu-2003
-```
+**Name:** Thiyagu S  
+**Role:** Cloud & DevOps Learner  
+**Country:** India 🇮🇳  
+**GitHub:** [https://github.com/Thiyagu-2003](https://github.com/Thiyagu-2003)  
 
 ---
 
-# ❤️ **Footer**
+## ❤️ Footer
 
-<p align="center">
-  <strong>Made with ❤️ by <a href="https://github.com/Thiyagu-2003">Thiyagu S</a></strong><br>
-  Learning • Building • Improving
-</p>
-
----
+Made with ❤️ by [Thiyagu S](https://github.com/Thiyagu-2003)  
+Learning • Building • Improving
+```
