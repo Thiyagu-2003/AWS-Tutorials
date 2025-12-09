@@ -2,13 +2,12 @@
 # 📘 **AWS Cloud Essentials – Complete Documentation Index**
 
 <p align="center">
-  <img src="https://img.shields.io/badge/AWS-Cloud%20Essentials-orange?logo=amazon-aws&logoColor=white" />
-  <img src="https://img.shields.io/badge/Docs-7%20Services-blue" />
-  <a href="https://github.com/Thiyagu-2003">
-    <img src="https://img.shields.io/badge/Made%20By-Thiyagu%20S-brightgreen?logo=github" />
-  </a>
+<img src="https://img.shields.io/badge/AWS-Cloud%20Essentials-orange?logo=amazon-aws&logoColor=white" />
+<img src="https://img.shields.io/badge/Docs-8%20Services-blue" />
+<a href="https://github.com/Thiyagu-2003">
+<img src="https://img.shields.io/badge/Made%20By-Thiyagu%20S-brightgreen?logo=github" />
+</a>
 </p>
-
 ---
 
 # 📑 **Table of Contents (Open Any Service)**
@@ -33,12 +32,12 @@ Each AWS service includes:
 
 **Includes:**
 
-* Instance types  
-* AMIs & EBS  
-* Security Groups  
-* Web server & User data  
-* CLI + diagrams  
-* Interview Qs
+- Instance types
+- AMIs & EBS
+- Security Groups
+- Web server & User data
+- CLI + diagrams
+- Interview Qs
 
 ---
 
@@ -52,12 +51,12 @@ Each AWS service includes:
 
 **Includes:**
 
-* Buckets & Objects  
-* Storage Classes  
-* Versioning / Lifecycle  
-* Encryption (SSE-KMS)  
-* Static Hosting  
-* Interview Qs
+- Buckets & Objects
+- Storage Classes
+- Versioning / Lifecycle
+- Encryption (SSE-KMS)
+- Static Hosting
+- Interview Qs
 
 ---
 
@@ -71,11 +70,11 @@ Each AWS service includes:
 
 **Includes:**
 
-* Users / Groups / Roles  
-* Inline & Managed Policies  
-* IAM Best Practices  
-* MFA / STS  
-* Interview Qs
+- Users / Groups / Roles
+- Inline & Managed Policies
+- IAM Best Practices
+- MFA / STS
+- Interview Qs
 
 ---
 
@@ -89,12 +88,12 @@ Each AWS service includes:
 
 **Includes:**
 
-* VPC, Subnets, CIDR  
-* IGW, NAT, Route Tables  
-* ACL vs Security Groups  
-* VPC Peering  
-* Transit Gateway  
-* Interview Qs
+- VPC, Subnets, CIDR
+- IGW, NAT, Route Tables
+- ACL vs Security Groups
+- VPC Peering
+- Transit Gateway
+- Interview Qs
 
 ---
 
@@ -108,12 +107,12 @@ Each AWS service includes:
 
 **Includes:**
 
-* DNS Basics  
-* Hosted Zones  
-* Record Types  
-* Routing Policies  
-* Health Checks  
-* Interview Qs
+- DNS Basics
+- Hosted Zones
+- Record Types
+- Routing Policies
+- Health Checks
+- Interview Qs
 
 ---
 
@@ -127,14 +126,14 @@ Each AWS service includes:
 
 **Includes:**
 
-* Pub/Sub Model  
-* Topics, Publishers, Subscribers  
-* Fan-out Architecture  
-* Integrations (Email, SMS, Lambda, SQS)  
-* Message filtering  
-* CLI commands  
-* Real-world workflows  
-* 15 interview questions
+- Pub/Sub Model
+- Topics, Publishers, Subscribers
+- Fan-out Architecture
+- Integrations (Email, SMS, Lambda, SQS)
+- Message filtering
+- CLI commands
+- Real-world workflows
+- 15 interview questions
 
 ---
 
@@ -148,17 +147,38 @@ Each AWS service includes:
 
 **Includes:**
 
-* CloudWatch Metrics (EC2 / Custom)  
-* CloudWatch Logs & Log Groups  
-* CloudWatch Agent (install, config, run)  
-* CloudWatch Alarms & SNS integration  
-* CloudWatch Dashboards & Insights (Logs Insights)  
-* Cost-saving tips for logs & metrics  
-* 15 high-value interview questions
+- CloudWatch Metrics (EC2 / Custom)
+- CloudWatch Logs & Log Groups
+- CloudWatch Agent (install, config, run)
+- CloudWatch Alarms & SNS integration
+- CloudWatch Dashboards & Insights (Logs Insights)
+- Cost-saving tips for logs & metrics
+- 15 high-value interview questions
 
 ---
 
-# 🗂️ **Repository Structure**
+# �️ **RDS – Relational Database Service**
+
+<p align="center">
+  <a href="RDS/README.md">
+    <img src="https://img.shields.io/badge/🗄️%20Open%20RDS%20Documentation-3b82f6?style=for-the-badge" />
+  </a>
+</p>
+
+**Includes:**
+
+- RDS Instance Setup (MySQL/PostgreSQL)
+- EC2 → RDS Connectivity
+- Security Group Best Practices
+- Multi-AZ & Read Replicas
+- Backup & Encryption
+- Database client installation
+- Architecture diagrams
+- 15 interview questions
+
+---
+
+# �🗂️ **Repository Structure**
 
 ```
 
@@ -178,7 +198,9 @@ AWS-Tutorials/
 │   └── README.md
 ├── SNS/
 │   └── README.md
-└── CloudWatch/
+├── CloudWatch/
+│   └── README.md
+└── RDS/
     └── README.md
 
 
@@ -194,7 +216,8 @@ AWS-Tutorials/
 4️⃣ S3 → Storage & static hosting  
 5️⃣ Route 53 → Global DNS & routing  
 6️⃣ SNS → Messaging, fan-out, automation  
-7️⃣ CloudWatch → Monitoring, logs, observability
+7️⃣ CloudWatch → Monitoring, logs, observability  
+8️⃣ RDS → Managed relational databases
 
 This order mirrors real-world team onboarding and is optimized for practical learning.
 
