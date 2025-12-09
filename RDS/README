@@ -1,10 +1,15 @@
+---
 
-# 📘 Amazon RDS + EC2 Connectivity – Best Practice Guide
+# *📘 Amazon RDS + EC2 Connectivity – Best Practice Guide*
 
-![AWS-RDS](https://img.shields.io/badge/AWS-RDS-blue?logo=amazon-aws&logoColor=white)
-![Database](https://img.shields.io/badge/Database-MySQL%2FPostgreSQL-lightblue)
-![Security](https://img.shields.io/badge/Security-Best%20Practice-brightblue)
-[Made by Thiyagu S](https://github.com/Thiyagu-2003)
+<p align="center">
+  <img src="https://img.shields.io/badge/AWS-RDS-blue?logo=amazon-aws&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Database-MySQL%2FPostgreSQL-lightblue" />
+  <img src="https://img.shields.io/badge/Security-Best%20Practice-brightblue" />
+  <a href="https://github.com/Thiyagu-2003">
+    <img src="https://img.shields.io/badge/Made%20By-Thiyagu%20S-green?logo=github" />
+  </a>
+</p>
 
 ---
 
