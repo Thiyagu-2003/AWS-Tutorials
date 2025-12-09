@@ -8,6 +8,7 @@
 <img src="https://img.shields.io/badge/Made%20By-Thiyagu%20S-brightgreen?logo=github" />
 </a>
 </p>
+
 ---
 
 # 📑 **Table of Contents (Open Any Service)**
