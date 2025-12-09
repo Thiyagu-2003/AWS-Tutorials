@@ -1,6 +1,6 @@
 ---
 
-# 📘 **Amazon CloudWatch & CloudWatch Agent – Complete Guide**
+# ☁👀 **Amazon CloudWatch & CloudWatch Agent – Complete Guide**
 
 <p align="center">
   <img src="https://img.shields.io/badge/AWS-CloudWatch-orange?logo=amazon-aws&logoColor=white" />
@@ -15,46 +15,51 @@
 
 # 📑 **Table of Contents**
 
-* 🔎 Overview
-* 📦 Prerequisites
-* ⚙️ Install CloudWatch Agent
-* 📝 Create Config File
-* 🚀 Apply & Start Agent
-* 📊 Verify in CloudWatch
-* 🛠 Troubleshooting
-* 🧾 Quick Reference
-* 👤 Author
-* ❤️ Footer
+* 🔎 [Overview](#1-overview)
+* 📦 [Prerequisites](#2-prerequisites)
+* ⚙️ [Install CloudWatch Agent](#3-install-cloudwatch-agent)
+* 📝 [Create Config File](#4-create-the-configuration-file)
+* 🚀 [Apply & Start Agent](#5-apply-config--start-the-agent)
+* 📊 [Verify in CloudWatch](#6-verify-in-cloudwatch-console)
+* 🛠 [Troubleshooting](#7-troubleshooting)
+* 📚 [Important CloudWatch Interview Questions](#9-important-cloudwatch-interview-questions)
+* 🧾 [Quick Reference](#8-useful-paths--commands-quick-reference)
+* 👤 [Author](#author)
+* ❤️ [Footer](#footer)
 
 ---
 
 # 🔎 **1. Overview**
 
-CloudWatch Agent collects **CPU, RAM, disk, network metrics, and log files** from EC2 → sends them to **CloudWatch Metrics & CloudWatch Logs**.
+CloudWatch Agent collects **CPU, RAM, disk, network metrics, and log files** from EC2 → sends them to:
+
+✔ CloudWatch Metrics
+✔ CloudWatch Logs
+✔ AWS Logs Insights
 
 Use this when you want:
 
 * Real-time EC2 monitoring
 * Custom metrics
 * Log ingestion
-* Alarm setup
-* Dashboards for infra visibility
+* Alarm notifications
+* Dashboard visualization
 
 ---
 
 # 📦 **2. Prerequisites**
 
-Attach these policies to the EC2's IAM Role:
+Attach these policies to the EC2 IAM Role:
 
-### ✔️ Required Policies
+### ✔ Required IAM Policies
 
 * `CloudWatchAgentServerPolicy`
-* `AmazonSSMManagedInstanceCore` (if using SSM)
+* `AmazonSSMManagedInstanceCore` (if using SSM Session Manager)
 
-### ✔️ Required Access
+### ✔ Required System Access
 
-* Outbound internet access
-* Any Linux EC2 instance (AL2, Ubuntu, RHEL, CentOS)
+* EC2 must have Internet access
+* Linux instance supported by the CloudWatch Agent
 
 ---
 
@@ -73,7 +78,7 @@ wget https://s3.amazonaws.com/amazoncloudwatch-agent/ubuntu/amd64/latest/amazon-
 sudo dpkg -i amazon-cloudwatch-agent.deb
 ```
 
-Agent installs into:
+Location:
 
 ```
 /opt/aws/amazon-cloudwatch-agent/bin/
@@ -83,7 +88,7 @@ Agent installs into:
 
 # 📝 **4. Create the Configuration File**
 
-### 🅰️ Option A — Wizard (recommended)
+### 🅰️ Option A — Wizard
 
 ```bash
 sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
@@ -97,9 +102,9 @@ Generated file:
 
 ---
 
-### 🅱️ Option B — Your Own JSON
+### 🅱️ Option B — Custom JSON
 
-Place custom config here:
+Place your config at:
 
 ```
 /opt/aws/amazon-cloudwatch-agent/bin/config.json
@@ -109,7 +114,7 @@ Place custom config here:
 
 # 🚀 **5. Apply Config & Start the Agent**
 
-Run main command:
+### Start & apply config:
 
 ```bash
 sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl \
@@ -118,7 +123,7 @@ sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl \
   -s
 ```
 
-### Validate config:
+### Validate configuration:
 
 ```bash
 sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl \
@@ -126,7 +131,7 @@ sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl \
   -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json
 ```
 
-### systemd controls:
+### Systemd controls:
 
 ```bash
 sudo systemctl start amazon-cloudwatch-agent
@@ -150,7 +155,7 @@ CloudWatch → Metrics → CWAgent
 CloudWatch → Logs → Log groups
 ```
 
-Check log group names match your config.
+Ensure log group names match your config.
 
 ---
 
@@ -158,19 +163,21 @@ Check log group names match your config.
 
 ---
 
-## ❗ A. ec2tagger / Missing Tags
+## ❗ A. ec2tagger / Missing Tags Error
 
-Error example:
+Error:
 
-`UnauthorizedOperation: ec2:DescribeTags`
+```
+UnauthorizedOperation: ec2:DescribeTags
+```
 
-Add these permissions:
+Fix: Add IAM permissions:
 
 * `ec2:DescribeTags`
 * `ec2:DescribeInstances`
 * `ec2:DescribeVolumes`
 
-Restart:
+Restart agent:
 
 ```bash
 sudo systemctl restart amazon-cloudwatch-agent
@@ -178,11 +185,11 @@ sudo systemctl restart amazon-cloudwatch-agent
 
 ---
 
-## ❗ B. Logs Not Appearing
+## ❗ B. Logs Not Coming to CloudWatch
 
 Check:
 
-1. IAM role → `CloudWatchAgentServerPolicy`
+1. IAM role has `CloudWatchAgentServerPolicy`
 2. Log file path exists
 3. Agent logs:
 
@@ -190,11 +197,14 @@ Check:
 sudo tail -f /opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log
 ```
 
-Look for `piping log to cloudwatchlogs`.
+Look for:
+➡️ `piping log to cloudwatchlogs`
 
 ---
 
-## ❗ C. Invalid JSON / Config Errors
+## ❗ C. JSON Config Errors
+
+Validate:
 
 ```bash
 sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl \
@@ -202,31 +212,51 @@ sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl \
   -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json
 ```
 
-Fix formatting issues.
+---
+
+# 📚 **9. Important CloudWatch Interview Questions**
+
+Here are **15 high-value CloudWatch interview questions**:
+
+1. ⭐ **What is the difference between CloudWatch and CloudTrail?**
+2. 🔥 **What are CloudWatch Logs, Log Streams, and Log Groups?**
+3. 🛰 **How does the CloudWatch Agent differ from the Default EC2 Metrics?**
+4. 🧰 **What metrics are collected by default without installing the agent?**
+5. 🚨 **What is a CloudWatch Alarm and what states does it have?**
+6. 📊 **How does CloudWatch metric retention work?**
+7. ⚡ **What are High-Resolution Metrics (1-second metrics)?**
+8. 🔐 **How do you securely send logs to CloudWatch?**
+9. 📡 **What is Metric Filter in CloudWatch Logs?**
+10. 🎯 **What are the use cases of CloudWatch Dashboards?**
+11. 🎛 **What is CloudWatch Contributor Insights?**
+12. 🧹 **How do you reduce CloudWatch Logs cost?**
+13. 🔄 **How do CloudWatch Alarms integrate with SNS?**
+14. 💾 **What is CloudWatch Logs Insights used for?**
+15. 🧩 **Why does the CloudWatch Agent need EC2 DescribeTags permission?**
 
 ---
 
 # 🧾 **8. Useful Paths & Commands (Quick Reference)**
 
-### 📄 Agent Logs:
+### 📄 Logs
 
 ```
 /opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log
 ```
 
-### 📄 Config File:
+### 📄 Config File
 
 ```
 /opt/aws/amazon-cloudwatch-agent/bin/config.json
 ```
 
-### 📄 Converted TOML File:
+### 📄 Runtime Config
 
 ```
 /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.toml
 ```
 
-### 🔧 Common Commands:
+### 🔧 Commands
 
 ```bash
 sudo systemctl restart amazon-cloudwatch-agent
@@ -255,3 +285,5 @@ GitHub: Thiyagu-2003
 </p>
 
 ---
+
+
