@@ -209,7 +209,11 @@ psql -h your-rds-endpoint.amazonaws.com -U admin -d postgres
 
 ---
 
-## ❤️ Footer
+# ❤️ **Footer**
 
-Made with ❤️ by [Thiyagu S](https://github.com/Thiyagu-2003)  
-Learning • Building • Improving
+<p align="center">
+  <strong>Made with ❤️ by <a href="https://github.com/Thiyagu-2003">Thiyagu S</a></strong><br>
+  Learning • Building • Improving
+</p>
+
+---
