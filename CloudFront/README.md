@@ -214,23 +214,27 @@ Both should:
 # 🖥️ **7. CloudFront Architecture Diagram (High-Level)**
 
 ```
-               +------------------------+
-               |     End User Browser   |
-               +-----------+------------+
-                           |
-                           v
-                +------------------------+
-                |      Amazon CloudFront |
-                |   (Global CDN + SSL)  |
-                +-----------+------------+
-                           |
-          +----------------+----------------+
-          |                                 |
-          v                                 v
-+-------------------+           +------------------------+
-|  S3 Static Site   |           |     EC2 Web Server     |
-| (HTML / CSS / JS) |           |   (Custom Application) |
-+-------------------+           +------------------------+
+
+			
+								               +------------------------+
+								               |     End User Browser   |
+								               +-----------+------------+
+								                           |
+								                           v
+								                +------------------------+
+								                |      Amazon CloudFront |
+								                |   (Global CDN + SSL)   |
+								                +-----------+------------+
+								                           |
+								          +----------------+----------------+
+								          |                                 |
+								          v                                 v
+								+-------------------+           +------------------------+
+								|  S3 Static Site   |           |     EC2 Web Server     |
+								| (HTML / CSS / JS) |           |   (Custom Application) |
+								+-------------------+           +------------------------+
+
+
 ```
 
 ---
@@ -323,10 +327,14 @@ Your CloudFront deployment is now fully production-ready:
 
 # 👤 **Author**
 
-**Name:** Thiyagu S
-**Role:** Cloud & DevOps Learner
-**Country:** India 🇮🇳
-**GitHub:** [Thiyagu-2003](https://github.com/Thiyagu-2003)
+```
+
+Name: Thiyagu S
+Role: Cloud & DevOps Learner
+Location: India 🇮🇳
+GitHub: Thiyagu-2003
+
+```
 
 ---
 
@@ -334,7 +342,7 @@ Your CloudFront deployment is now fully production-ready:
 
 <p align="center">
   <strong>Made with ❤️ by <a href="https://github.com/Thiyagu-2003">Thiyagu S</a></strong><br>
-  <em>Learning • Building • Improving</em>
+  Learning • Building • Improving
 </p>
 
 ---
