@@ -3,12 +3,11 @@
 
 <p align="center">
 <img src="https://img.shields.io/badge/AWS-Cloud%20Essentials-orange?logo=amazon-aws&logoColor=white" />
-<img src="https://img.shields.io/badge/Docs-8%20Services-blue" />
+<img src="https://img.shields.io/badge/Docs-9%20Services-blue" />
 <a href="https://github.com/Thiyagu-2003">
 <img src="https://img.shields.io/badge/Made%20By-Thiyagu%20S-brightgreen?logo=github" />
 </a>
 </p>
-
 ---
 
 # 📑 **Table of Contents (Open Any Service)**
@@ -57,6 +56,26 @@ Each AWS service includes:
 - Versioning / Lifecycle
 - Encryption (SSE-KMS)
 - Static Hosting
+- Interview Qs
+
+---
+
+# 🌐 **CloudFront – Content Delivery Network (CDN)**
+
+<p align="center">
+  <a href="CloudFront/README.md">
+    <img src="https://img.shields.io/badge/🚀%20Open%20CloudFront%20Documentation-06b6d4?style=for-the-badge" />
+  </a>
+</p>
+
+**Includes:**
+
+- CloudFront Basics
+- Distributions & Origins
+- Edge Locations & Caching
+- SSL/TLS & Custom Domains
+- S3 + CloudFront Integration
+- Cache Invalidation
 - Interview Qs
 
 ---
@@ -191,6 +210,8 @@ AWS-Tutorials/
 │   └── README.md
 ├── S3/
 │   └── README.md
+├── CloudFront/
+│   └── README.md
 ├── IAM/
 │   └── README.md
 ├── VPC/
@@ -215,10 +236,11 @@ AWS-Tutorials/
 2️⃣ VPC → Networking basics  
 3️⃣ EC2 → Compute layer  
 4️⃣ S3 → Storage & static hosting  
-5️⃣ Route 53 → Global DNS & routing  
-6️⃣ SNS → Messaging, fan-out, automation  
-7️⃣ CloudWatch → Monitoring, logs, observability  
-8️⃣ RDS → Managed relational databases
+5️⃣ CloudFront → CDN & edge caching  
+6️⃣ Route 53 → Global DNS & routing  
+7️⃣ SNS → Messaging, fan-out, automation  
+8️⃣ CloudWatch → Monitoring, logs, observability  
+9️⃣ RDS → Managed relational databases
 
 This order mirrors real-world team onboarding and is optimized for practical learning.
 
