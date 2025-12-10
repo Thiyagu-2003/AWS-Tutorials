@@ -1,61 +1,66 @@
 ---
 
-# 🌐 <strong>AWS CloudFront Deployment Guide</strong>
-### 🚀 With S3 / EC2 Website + ACM Certificate + Route 53 Domain
+# <h1 align="center">🌐 <strong>AWS CloudFront Deployment Guide</strong></h1>
+
+### <h3 align="center">🚀 With S3 / EC2 Website + ACM Certificate + Route 53 Domain</h3>
 
 <p align="center">
   <img src="https://img.shields.io/badge/AWS-CloudFront-orange?logo=amazon-aws" />
   <img src="https://img.shields.io/badge/Deployment-Guide-blue" />
   <img src="https://img.shields.io/badge/CDN-Enabled-success" />
   <a href="https://github.com/Thiyagu-2003">
-    <img src="https://img.shields.io/badge/Made%20By-Thiyagu%20S-green?logo=github" />
+	<img src="https://img.shields.io/badge/Made%20By-Thiyagu%20S-green?logo=github" />
   </a>
 </p>
 
 ---
 
-# 📑 Table of Contents
+# 📑 **Table of Contents**
 
-1. [Prerequisites](#prerequisites)  
-2. [Create or Prepare S3 Bucket](#create-or-prepare-s3-bucket-if-using-s3-hosting)  
-3. [Create CloudFront Distribution](#create-cloudfront-distribution)  
-4. [Route 53 Configuration](#route-53-configuration-connect-domain--cloudfront)  
-5. [Test the Website](#test-the-website)  
-6. [Optional: Improve Performance](#optional-improve-performance)  
-7. [Architecture Diagram (High-Level)](#architecture-diagram-high-level)  
-8. [Full Workflow Overview](#full-workflow-overview)  
-9. [Important CloudFront Interview Questions](#important-cloudfront-interview-questions)  
-10. [Conclusion](#conclusion)  
-11. [Author](#author)  
-12. [Footer](#footer)
-
----
-
-<a id="prerequisites"></a>
-# ✅ Prerequisites
-
-Before starting, make sure you already have:
-
-- **A Domain Name** (GoDaddy, Hostinger, Namecheap, AWS Domains, etc.)  
-- **A Website Hosted on S3 or EC2**  
-  - S3 → Static Hosting (React/HTML/CSS/JS build folder)  
-  - EC2 → Running Nginx/Apache/Node/Python etc.  
-- **SSL Certificate (ACM)** — **must be created in `us-east-1`** (N. Virginia) for CloudFront  
-  - Add both: `example.com` and `www.example.com`  
-  - Validate via Route 53 (Create Record)  
-- **Route 53 Hosted Zone** — domain must point to Route 53 nameservers
+1. [📌 Prerequisites](#-1-prerequisites)
+2. [🪣 Create or Prepare S3 Bucket](#-2-create-or-prepare-s3-bucket-if-using-s3-hosting)
+3. [🚀 Create CloudFront Distribution](#-3-create-cloudfront-distribution)
+4. [🌍 Route-53 Domain Configuration](#-4-route-53-configuration-connect-domain--cloudfront)
+5. [🧪 Test the Deployment](#-5-test-the-website)
+6. [⚡ Optional Optimization](#-6-optional-improve-performance)
+7. [🖥️ Architecture Diagram](#-7-cloudfront-architecture-diagram-high-level)
+8. [🔀 Workflow Overview](#-8-full-workflow-overview)
+9. [🎤 CloudFront Interview Questions](#-9-important-cloudfront-interview-questions)
+10. [🔚 Conclusion](#-conclusion)
+11. [👤 Author](#-author)
+12. [❤️ Footer](#️-footer)
 
 ---
 
-<a id="create-or-prepare-s3-bucket-if-using-s3-hosting"></a>
-# 🔥 2. Create or Prepare S3 Bucket (If using S3 Hosting)
+# 📌 **1. Prerequisites**
 
-### Steps
-1. Open **S3 Console → Create Bucket**  
-2. Bucket name: `example.cloud` (replace with your domain)  
-3. Turn **OFF** *Block All Public Access*  
-4. Enable **Static Website Hosting** (Index: `index.html`, Error: `index.html` for SPA)  
-5. Add this **Bucket Policy** (replace bucket name):
+Before you start, make sure you have:
+
+✔️ **A registered domain name** (GoDaddy, Hostinger, Namecheap, etc.)
+✔️ **An SSL certificate** (AWS Certificate Manager – *must be in us-east-1*)
+✔️ **A website build ready**
+
+* Either hosted on **S3**
+* Or already running on **EC2**
+  ✔️ Basic AWS access (IAM user with admin or required permissions)
+
+---
+
+# 🪣 **2. Create or Prepare S3 Bucket (If using S3 hosting)**
+
+> Skip this if your website is running on **EC2**.
+
+### ✅ Step 1 — Create Bucket
+
+* Open **S3 Console**
+* Create a bucket with your domain name
+  Example: **thiyagu.cloud**
+
+### ✅ Step 2 — Enable Static Website Hosting
+
+`Properties → Static website hosting → Enable`
+
+### ✅ Step 3 — Add Public Bucket Policy
 
 ```json
 {
@@ -66,147 +71,153 @@ Before starting, make sure you already have:
       "Effect": "Allow",
       "Principal": "*",
       "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::example.cloud/*"
+      "Resource": "arn:aws:s3:::thiyagu.cloud/*"
     }
   ]
 }
-````
+```
 
-6. Upload the **build** folder contents exactly as generated (no renames)
+### ✅ Step 4 — Upload Your Build Files
+
+Upload **exactly** the build output (no extra folders).
 
 ---
 
-<a id="create-cloudfront-distribution"></a>
+# 🚀 **3. Create CloudFront Distribution**
 
-# 🚀 3. Create CloudFront Distribution
+### 🔧 Step 1 — Create Distribution
 
 Go to **CloudFront → Create Distribution**
 
-## STEP 1 — Origin Settings
+### 🔧 Step 2 — Choose Origin
 
-* **If S3**: Use **S3 Website Endpoint** (not the default bucket origin).
+Choose based on your hosting:
 
-  * Example: `http://example.cloud.s3-website-us-east-1.amazonaws.com`
-* **If EC2**: Use **Custom Origin** — EC2 Public IPv4 / Public DNS
+| Website Type | CloudFront Origin                        |
+| ------------ | ---------------------------------------- |
+| S3 Website   | Select **S3 static website hosting URL** |
+| EC2 Website  | Enter **EC2 Public DNS / Load Balancer** |
 
-## STEP 2 — Default Behavior Settings
+### 🔧 Step 3 — Configure Settings
 
-* Viewer Protocol Policy → **Redirect HTTP to HTTPS**
-* Allowed HTTP Methods → **GET, HEAD**
-* Cache Policy → **CachingOptimized**
+* **Viewer protocol**: Redirect HTTP → HTTPS
+* **Caching**: Use optimized settings
+* **WAF**: Optional
+* **Alternate domain names (CNAMEs):**
 
-## STEP 3 — Add Custom Domain & SSL
+  * `thiyagu.cloud`
+  * `www.thiyagu.cloud`
 
-* Alternate Domain Names (CNAMEs):
+### 🔧 Step 4 — Add SSL Certificate
 
-  * `example.cloud`
-  * `www.example.cloud`
-* Attach the ACM certificate (created in **us-east-1**)
+Choose the certificate you created earlier:
 
-## STEP 4 — Create Distribution
+✔️ `*.thiyagu.cloud`
+✔️ `thiyagu.cloud`
+✔️ `www.thiyagu.cloud`
 
-* Click **Create Distribution**
-* Wait **5–15 minutes** for deployment
-* CloudFront domain example: `d123exampleabcd.cloudfront.net`
+### 🔧 Step 5 — Create Distribution
 
----
-
-<a id="route-53-configuration-connect-domain--cloudfront"></a>
-
-# 🌍 4. Route 53 Configuration (Connect Domain → CloudFront)
-
-Go to **Route 53 → Hosted Zone → example.cloud**
-
-### Record 1 — Root Domain
-
-* **Type:** A
-* **Name:** example.cloud
-* **Alias:** YES
-* **Target:** CloudFront Distribution
-
-### Record 2 — WWW Domain
-
-* **Type:** A
-* **Name:** [www.example.cloud](http://www.example.cloud)
-* **Alias:** YES
-* **Target:** CloudFront Distribution
+The distribution takes **5–10 minutes** to deploy.
 
 ---
 
-<a id="test-the-website"></a>
+# 🌍 **4. Route 53 Configuration (Connect Domain → CloudFront)**
 
-# 🧪 5. Test the Website
+### Step 1 — Create Hosted Zone
 
-Open in browser:
+* Go to **Route 53 → Hosted Zones → Create**
+* Enter domain: `thiyagu.cloud`
 
-* `https://example.cloud`
-* `https://www.example.cloud`
+### Step 2 — Update DNS at Domain Provider
 
-Both should:
+Copy Route53 **NS records** → Paste into GoDaddy/Hostinger/Namecheap.
 
-* Load via **HTTPS**
-* Be served by **CloudFront**
-* Reflect caching behavior
+### Step 3 — Create Records in Route 53
 
----
+#### ✅ **Record 1 — Main Domain (www)**
 
-<a id="optional-improve-performance"></a>
+* Name: `www.thiyagu.cloud`
+* Type: **A – Alias**
+* Alias target: **CloudFront Distribution**
 
-# ⚡ 6. Optional: Improve Performance
+#### ✅ **Record 2 — Root Domain**
 
-| Feature            | Recommendation                                |
-| ------------------ | --------------------------------------------- |
-| IPv6               | Enable for global reach                       |
-| AWS WAF            | Add protection from bots & OWASP threats      |
-| Cache Invalidation | Invalidate `/index.html` or paths post-deploy |
-| Logging            | Enable CloudFront logs to S3 for analytics    |
-| HTTP/3             | Enable for lower latencies where available    |
-| Geo-Restriction    | Use to block/allow countries if needed        |
-| Origin Shield      | Use to reduce origin load on high traffic     |
+* Name: `thiyagu.cloud`
+* Type: **A – Alias**
+* Alias target: **CloudFront Distribution**
 
 ---
 
-<a id="architecture-diagram-high-level"></a>
+# 🧪 **5. Test the Website**
 
-# 🖥️ 7. Architecture Diagram (High-Level)
+Visit:
+
+🔗 **[https://thiyagu.cloud](https://thiyagu.cloud)**
+🔗 **[https://www.thiyagu.cloud](https://www.thiyagu.cloud)**
+
+If propagation is slow, wait 5–30 minutes.
+
+---
+
+# ⚡ **6. Optional – Improve Performance**
+
+✔️ Enable **Compression**
+✔️ Enable **Caching Policies**
+✔️ Add **WAF protection**
+✔️ Enable **HTTP/3**
+✔️ Configure **Custom Error Pages**
+✔️ Add **Geo Restrictions** (optional)
+
+---
+
+# 🖥️ **7. CloudFront Architecture Diagram (High-Level)**
 
 ```
-               +------------------------+
-               |     End User Browser   |
-               +-----------+------------+
-                           |
-                           v
-                +------------------------+
-                |      Amazon CloudFront |
-                |   (Global CDN + SSL)   |
-                +-----------+------------+
-                           |
-          +----------------+----------------+
-          |                                 |
-          v                                 v
-+-------------------+           +------------------------+
-|  S3 Static Site   |           |     EC2 Web Server     |
-| (HTML / CSS / JS) |           |   (Custom Application) |
-+-------------------+           +------------------------+
-```
+               +-------------------+
+               |   End User        |
+               | (Browser/Client)  |
+               +---------+---------+
+                         |
+                         v
+               +-------------------+
+               |   CloudFront      |
+               |   Edge Network    |
+               +---------+---------+
+                         |
+         +---------------+----------------+
+         |                                |
+         v                                v
++------------------+             +----------------------+
+|     S3 Bucket    |             |  EC2 / Load Balancer |
+| (Static Hosting) |             | (Dynamic Hosting)    |
++------------------+             +----------------------+
 
-> **Note:** This diagram is intentionally simple — CloudFront sits between users and the origin (S3 or EC2), delivering cached content from edge locations and enforcing HTTPS via ACM.
-
----
-
-<a id="full-workflow-overview"></a>
-
-# 🔀 8. Full Workflow Overview
-
-```
-User → CloudFront (Edge) → SSL (ACM) → Route 53 (DNS) → S3 or EC2 (Origin) → Response
+                         |
+         +---------------+---------------+
+         |                               |
+         v                               v
++------------------+          +--------------------------+
+| AWS Certificate  |          |       Route 53           |
+|   Manager (ACM)  |          |   DNS + Domain Mapping   |
++------------------+          +--------------------------+
 ```
 
 ---
 
-<a id="important-cloudfront-interview-questions"></a>
+# 🔀 **8. Full Workflow Overview**
 
-# 🎤 9. Important CloudFront Interview Questions (Top 15)
+```
+User → CloudFront → Cache? (Yes → Serve Cached Content)
+                     |
+                    No
+                     ↓
+Origin (S3 / EC2) → Response → Cached → Delivered securely via HTTPS
+```
+
+---
+
+# 🎤 **9. Important CloudFront Interview Questions**
 
 1. **What is CloudFront?**
    A global CDN that accelerates content delivery using edge locations.
@@ -257,40 +268,37 @@ User → CloudFront (Edge) → SSL (ACM) → Route 53 (DNS) → S3 or EC2 (Origi
 
 ---
 
-<a id="conclusion"></a>
+# 🔚 **Conclusion**
 
-# 🔚 Conclusion
+CloudFront is the fastest, most secure way to deploy global websites.
+With just **S3 + CloudFront + ACM + Route 53**, you get:
 
-You now have a production-ready CloudFront setup:
-
-* HTTPS & SSL via ACM
-* Domain routing with Route 53
-* CDN caching across global edge locations
-* Supports S3 static hosting and EC2-based origins
-* Options for security (WAF), performance (HTTP/3, Origin Shield), and logging
+✔️ Global CDN
+✔️ HTTPS security
+✔️ Custom domain
+✔️ Low latency
+✔️ Scalability without any configuration
 
 ---
 
-<a id="author"></a>
-
-# 👤 Author
+# 👤 **Author**
 
 ```
+
 Name: Thiyagu S
 Role: Cloud & DevOps Learner
 Location: India 🇮🇳
-GitHub: https://github.com/Thiyagu-2003
+GitHub: Thiyagu-2003
+
 ```
 
 ---
 
-<a id="footer"></a>
-
-# ❤️ Footer
+# ❤️ **Footer**
 
 <p align="center">
   <strong>Made with ❤️ by <a href="https://github.com/Thiyagu-2003">Thiyagu S</a></strong><br>
-  <em>Learning • Building • Improving</em>
+  Learning • Building • Improving
 </p>
 
 ---
