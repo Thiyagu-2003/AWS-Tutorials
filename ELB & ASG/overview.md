@@ -16,6 +16,28 @@
 
 ---
 
+## 🚀 ELB Documentation Sections
+
+<p align="center">
+  <a href="Classic-Load-Balancer/README.md">
+    <img src="https://img.shields.io/badge/❌%20Classic%20Load%20Balancer-Legacy-red?style=for-the-badge" />
+  </a>
+  &nbsp;&nbsp;
+  <a href="Application-Load-Balancer/README.md">
+    <img src="https://img.shields.io/badge/✅%20Application%20Load%20Balancer-L7-blue?style=for-the-badge" />
+  </a>
+  &nbsp;&nbsp;
+  <a href="Network-Load-Balancer/README.md">
+    <img src="https://img.shields.io/badge/⚡%20Network%20Load%20Balancer-L4-orange?style=for-the-badge" />
+  </a>
+</p>
+
+<p align="center">
+  <strong>Click a button to open detailed documentation, diagrams, configs & interview questions</strong>
+</p>
+
+---
+
 ## 📑 Table of Contents
 
 1. [📌 Overview](#sec-1-overview)
@@ -333,3 +355,4 @@ GitHub  : Thiyagu-2003
 </p>
 
 ---
+
