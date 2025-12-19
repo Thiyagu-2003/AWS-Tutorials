@@ -43,6 +43,13 @@ This hands-on demonstrates how to deploy a **Classic Load Balancer (CLB)** integ
 
 ---
 
+## Diagram
+
+![classic-load-balancer-1](https://github.com/user-attachments/assets/2c7a6786-0b52-4120-ad62-94969f7f9073)
+
+
+---
+
 ## 🧩 Architecture Used
 
 ```text
@@ -216,5 +223,6 @@ GitHub  : Thiyagu-2003
 </p>
 
 ---
+
 
 
