@@ -121,6 +121,9 @@ echo "<h1>Server: $(hostname)</h1>" > /var/www/html/index.html
 5. Attach Security Group:
 
    * Allow HTTP (80)
+   * Note: Wait for load balancer status check to be compete (2/2)
+   * Then hit the load balancer link to the web
+   * Example: the load balancer link looks like this : my-CLB-1079842188.us-east-1.elb.amazonaws.com
 
 ---
 
@@ -223,6 +226,7 @@ GitHub  : Thiyagu-2003
 </p>
 
 ---
+
 
 
 
