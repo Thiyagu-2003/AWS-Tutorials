@@ -11,6 +11,24 @@
 
 ---
 
+## 📚 Index
+
+1. [Overview](#-overview)
+2. [Architecture Used](#-architecture-used)
+3. [Prerequisites](#-prerequisites)
+4. [Hands-On Implementation](#-hands-on-implementation)
+   - [Step 1: Create EC2 Launch Template](#-step-1-create-ec2-launch-template)
+   - [Step 2: Create Classic Load Balancer](#-step-2-create-classic-load-balancer-clb)
+   - [Step 3: Create Auto Scaling Group](#-step-3-create-auto-scaling-group-asg)
+   - [Step 4: Verify Load Balancing](#-step-4-verify-load-balancing)
+5. [Testing Auto Scaling](#-testing-auto-scaling)
+6. [Common Mistakes](#-common-mistakes-you-avoided-here)
+7. [Interview Notes](#-interview-notes-classic-load-balancer)
+8. [Conclusion](#-conclusion)
+9. [Author](#-author)
+
+---
+
 ## 📌 Overview
 
 This hands-on demonstrates how to deploy a **Classic Load Balancer (CLB)** integrated with an **Auto Scaling Group (ASG)** to distribute traffic across multiple EC2 instances.
@@ -24,28 +42,27 @@ This hands-on demonstrates how to deploy a **Classic Load Balancer (CLB)** integ
 
 ## 🧩 Architecture Used
 
-```
-
+```text
 User
-↓
+ ↓
 Classic Load Balancer
-↓
+ ↓
 EC2 Instances (Auto Scaling Group)
-↓
+ ↓
 Apache Web Server
-
 ````
 
 ---
 
 ## 🛠️ Prerequisites
 
-- AWS account
-- EC2 key pair
-- Security Group allowing:
-  - HTTP (80)
-  - SSH (22)
-- Basic Linux knowledge
+* AWS account
+* EC2 key pair
+* Security Group allowing:
+
+  * HTTP (80)
+  * SSH (22)
+* Basic Linux knowledge
 
 ---
 
@@ -55,13 +72,13 @@ Apache Web Server
 
 ### 🔹 Step 1: Create EC2 Launch Template
 
-We use a **Launch Template**, not manual EC2 creation.  
-ASG depends on this.
+We use a **Launch Template**, not manual EC2 creation.
+Auto Scaling Groups depend on this.
 
-#### User Data Script (Dynamic – Correct Way)
+#### User Data Script (Dynamic – Correct Approach)
 
-> ❌ Your original mistake: hardcoding “Server 1 / Server 2”  
-> ✅ Correct: use instance hostname so ASG scales properly
+> ❌ Wrong approach: hardcoding “Server 1 / Server 2”
+> ✅ Correct approach: use hostname for scalability
 
 ```bash
 #!/bin/bash
@@ -70,31 +87,28 @@ systemctl start httpd
 systemctl enable httpd
 
 echo "<h1>Server: $(hostname)</h1>" > /var/www/html/index.html
-````
+```
 
-✔ This works for **any number of instances**
-✔ No manual changes needed
+✔ Works for unlimited instances
+✔ ASG-friendly
+✔ No manual edits required
 
 ---
 
 ### 🔹 Step 2: Create Classic Load Balancer (CLB)
 
-1. Go to **EC2 → Load Balancers**
-
+1. Navigate to **EC2 → Load Balancers**
 2. Click **Create Load Balancer**
-
 3. Select **Classic Load Balancer**
-
 4. Configure:
 
-   * Listener: HTTP : 80
-   * VPC & subnets
+   * Listener: `HTTP : 80`
+   * VPC & Subnets
    * Health Check:
 
      * Ping Path: `/`
-     * Port: 80
-
-5. Attach **Security Group**
+     * Port: `80`
+5. Attach Security Group:
 
    * Allow HTTP (80)
 
@@ -104,20 +118,20 @@ echo "<h1>Server: $(hostname)</h1>" > /var/www/html/index.html
 
 1. Go to **EC2 → Auto Scaling Groups**
 2. Create ASG using the **Launch Template**
-3. Configure:
+3. Set capacity:
 
-   * Min: `2`
+   * Minimum: `2`
    * Desired: `2`
-   * Max: `4`
+   * Maximum: `4`
 4. Attach the **Classic Load Balancer**
 5. Enable:
 
-   * ELB health checks
    * EC2 health checks
+   * ELB health checks
 
-✔ ASG will now:
+✔ ASG will automatically:
 
-* Launch instances automatically
+* Launch instances
 * Register them with CLB
 * Replace unhealthy instances
 
@@ -125,65 +139,66 @@ echo "<h1>Server: $(hostname)</h1>" > /var/www/html/index.html
 
 ### 🔹 Step 4: Verify Load Balancing
 
-1. Copy **CLB DNS name**
-2. Open in browser
+1. Copy the **CLB DNS name**
+2. Open it in a browser
 3. Refresh multiple times
 
 Expected output:
 
-```
+```text
 Server: ip-10-0-1-23
 Server: ip-10-0-2-45
 ```
 
-✔ Confirms traffic is distributed
+✔ Confirms traffic distribution
 ✔ Confirms ASG integration
 
 ---
 
 ## 🧪 Testing Auto Scaling
 
-### Manual Test (Simple)
+### Manual Test
 
-* Terminate one EC2 instance manually
-* ASG automatically launches a replacement
-* CLB registers new instance
+* Manually terminate one EC2 instance
+* ASG launches a replacement automatically
+* CLB registers the new instance
 
-✔ Zero downtime
+✔ No downtime
+✔ Self-healing confirmed
 
 ---
 
 ## ❌ Common Mistakes (You Avoided Here)
 
-* ❌ Creating EC2 manually instead of Launch Template
+* ❌ Creating EC2 instances manually
 * ❌ Hardcoding server names
-* ❌ Not enabling ELB health checks
-* ❌ Using CLB for microservices (wrong)
+* ❌ Skipping ELB health checks
+* ❌ Using CLB for microservices (architecturally wrong)
 
 ---
 
 ## 🎤 Interview Notes (Classic Load Balancer)
 
-* CLB operates at **Layer 4 & basic Layer 7**
+* Operates at **Layer 4 & limited Layer 7**
 * No path-based routing
 * No host-based routing
-* Legacy service
+* Legacy AWS service
 * Replaced by **ALB & NLB**
-* Still appears in **older architectures**
+* Still exists in older production systems
 
 ---
 
 ## 🔚 Conclusion
 
-Classic Load Balancer with Auto Scaling demonstrates **basic AWS load balancing concepts**, but it is **not suitable for modern applications**.
+Classic Load Balancer with Auto Scaling helps understand **basic AWS load-balancing concepts**, but it is **not suitable for modern architectures**.
 
-> Learn it → Understand it → **Move on to ALB / NLB**
+> Learn it → Understand it → **Move on to ALB & NLB**
 
 ---
 
 ## 👤 Author
 
-```
+```text
 Name    : Thiyagu S
 Role    : Cloud & DevOps Learner
 Location: India 🇮🇳
@@ -192,12 +207,10 @@ GitHub  : Thiyagu-2003
 
 ---
 
-## ❤️ Footer
-
 <p align="center">
   <strong>Made with ❤️ by <a href="https://github.com/Thiyagu-2003">Thiyagu S</a></strong><br>
   Learn • Build • Scale
 </p>
-
+```
 
 ---
